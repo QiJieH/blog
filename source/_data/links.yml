@@ -1,4 +1,8 @@
-"Sukka's Blog":
-  url: https://blog.skk.moe
-  img: https://secure.gravatar.com/avatar/979869bac8c7bd23fbd649064eabd48e?s=128
-  text: "苏卡卡的有底洞"
+"ECMAScript 6 入门教程":
+  url: https://www.bookstack.cn/read/es6-3rd/sidebar.md
+  img: https://i.jpg.dog/img/4baf0d679c9f244a470b93dffe872c1a.jpg
+  text: "开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新引入的语法特性"
+"JavaScript语言精粹":
+  url: https://item.jd.com/12809957.html
+  img: https://i.jpg.dog/img/ba50f5a9191d20da1e9b31b89b7aad39.jpg
+  text: "雅虎资深JavaScript架构师Douglas Crockford倾力之作。"
