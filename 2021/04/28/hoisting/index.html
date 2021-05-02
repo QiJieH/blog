@@ -146,7 +146,7 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="QiJieH の Link"><meta name="msapplication-starturl" content="http://qijieh.gitee.io/blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QiJieH の Link"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="JavaScript 提升（Hoisting） | QiJieH の Link"><meta property="og:site_name" content="QiJieH の Link"><meta property="og:type" content="article"><meta property="og:url" content="http://qijieh.gitee.io/blog/2021/04/28/hoisting/"><meta property="og:locale" content="zh-CN"><meta name="description" content="JavaScript 的语法来源于C。在所有其他类似C语言风格的语言里，一个代码块（包括一对花括号中的一组语句）会创造一个作用域。代码中声明的变量在其外部是不可见的。 - QiJieH - QiJieH の Link"><meta name="keywords" content="javascript, hositing"><meta property="og:image" content="https://i.jpg.dog/img/cbb43f09d226cac5cfa207115c7beb8f.png"><meta property="article:published_time" content="2021-04-28T13:55:00.000Z"><meta property="article:modified_time" content="2021-04-28T14:39:19.321Z"><meta property="og:updated_time" content="2021-04-28T14:39:19.321Z"><meta property="article:author" content="QiJieH"><meta property="article:tag" content="javascript, hositing"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="JavaScript 提升（Hoisting） | QiJieH の Link"><meta property="og:site_name" content="QiJieH の Link"><meta property="og:type" content="article"><meta property="og:url" content="http://qijieh.gitee.io/blog/2021/04/28/hoisting/"><meta property="og:locale" content="zh-CN"><meta name="description" content="JavaScript 的语法来源于C。在所有其他类似C语言风格的语言里，一个代码块（包括一对花括号中的一组语句）会创造一个作用域。代码中声明的变量在其外部是不可见的。 - QiJieH - QiJieH の Link"><meta name="keywords" content="javascript, hositing"><meta property="og:image" content="https://i.jpg.dog/img/cbb43f09d226cac5cfa207115c7beb8f.png"><meta property="article:published_time" content="2021-04-28T13:55:00.000Z"><meta property="article:modified_time" content="2021-05-02T13:49:29.535Z"><meta property="og:updated_time" content="2021-05-02T13:49:29.535Z"><meta property="article:author" content="QiJieH"><meta property="article:tag" content="javascript, hositing"><meta name="twitter:card" content="summary">
 
     
 
@@ -187,7 +187,7 @@
     },
     
     "datePublished": "2021-04-28T13:55:00.000Z",
-    "dateModified": "2021-04-28T14:39:19.321Z",
+    "dateModified": "2021-05-02T13:49:29.535Z",
     "author": {
         "@type": "Person",
         "name": "QiJieH",
@@ -298,22 +298,24 @@
 <p>实际的实现方式是 JavaScript 的变量和函数的声明会在编译阶段放入内存这意味着使用者在正式声明一个函数或者变量之前就能够使用它。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ReferenceError: foo1 is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(foo1);  </span><br><span class="line"></span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(foo2)</span><br><span class="line"><span class="keyword">var</span> foo2 = bar2;</span><br><span class="line"></span><br><span class="line"><span class="comment">//function fn is not defined</span></span><br><span class="line">fn();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>为了理解这一点，您必须理解术语 “hoisting”。Hoisting 是 JavaScript 将所有声明提升到当前作用域顶部的默认行为（提升到当前脚本或当前函数的顶部）。</p>
-<h2 id="let-和-const-关键字"><a href="#let-和-const-关键字" class="headerlink" title="let 和 const 关键字"></a>let 和 const 关键字</h2><p>用 let 或 const 声明的变量和常量不会被提升！</p>
+<h2 id="let-和-const-关键字"><a href="#let-和-const-关键字" class="headerlink" title="let 和 const 关键字"></a>let 和 const 关键字</h2><p>用 <code>let</code> 或 <code>const</code> 声明的变量和常量不会被提升！</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ReferenceError: a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
-<h2 id="JavaScript-初始化不会被提升"><a href="#JavaScript-初始化不会被提升" class="headerlink" title="JavaScript 初始化不会被提升"></a>JavaScript 初始化不会被提升</h2><p>JavaScript 只提升声明，而非初始化。</p>
+<h2 id="JavaScript-初始化不会被提升"><a href="#JavaScript-初始化不会被提升" class="headerlink" title="JavaScript 初始化不会被提升"></a>JavaScript 初始化不会被提升</h2><p><strong>JavaScript 只提升声明，而非初始化</strong>。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x + <span class="string">&quot; &quot;</span> + y);   <span class="comment">// 5 undefined</span></span><br><span class="line"><span class="keyword">var</span> y = <span class="number">7</span>;</span><br></pre></td></tr></table></figure>
 
 <h2 id="在顶部声明您的变量！"><a href="#在顶部声明您的变量！" class="headerlink" title="在顶部声明您的变量！"></a>在顶部声明您的变量！</h2><p>Hoisting（对很多开发者来说）是 JavaScript 的一种未知的或被忽视的行为。如果开发者不理解 hoisting，程序也许会包含 bug（错误）。为了避免 bug，<strong>请始终在每个作用域的开头声明所有变量</strong>。<br>由于这就是 JavaScript 解释代码的方式，请保持这个好习惯。严格模式中的 JavaScript 不允许在未被声明的情况下使用变量。</p>
 <blockquote>
 <p>参考 <em><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/js/js_hoisting.asp">w3school:js_hoisting</a></em></p>
 </blockquote>
-<h2 id="为什么会存在提升"><a href="#为什么会存在提升" class="headerlink" title="为什么会存在提升"></a>为什么会存在提升</h2><p>关于为什么存在变量提升和函数提升 JavaScript 开发者 Brendan Eich 在与 Dmitry Soshnikov 的 twitter 话题交流中曾有提到过，关于变量提升是由于第一代JS虚拟机中的抽象纰漏导致的，编译器将变量放到了栈槽内并编入索引，然后在（当前作用域的）入口处将变量名绑定到了栈槽内的变量。（注：这里提到的抽象是计算机术语，是对内部发生的更加复杂的事情的一种简化。），而函数提升，Brendan Eich 很确定的说，就是为了解决相互递归的问题，大体上可以解决像ML语言这样自下而上的顺序问题。</p>
+<h2 id="为什么会存在提升"><a href="#为什么会存在提升" class="headerlink" title="为什么会存在提升"></a>为什么会存在提升</h2><p>关于为什么存在变量提升和函数提升 JavaScript 开发者 Brendan Eich 在与 Dmitry Soshnikov 的 twitter 话题交流中曾有提到过，关于变量提升是由于第一代JS虚拟机中的抽象纰漏导致的，编译器将变量放到了栈槽内并编入索引，然后在（当前作用域的）入口处将变量名绑定到了栈槽内的变量。（注：这里提到的抽象是计算机术语，是对内部发生的更加复杂的事情的一种简化。），Brendan Eich 很确定的说，<strong>函数提升是为了解决相互递归的问题，大体上可以解决像ML语言这样自下而上的顺序问题</strong>。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 验证偶数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEven</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isOdd(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 验证奇数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isOdd</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> isEven(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>如果没有函数提升，而是按照自下而上的顺序，当<code>isEven</code>函数被调用时，<code>isOdd</code>函数还未声明，所以<code>isEven</code>内部无法调用<code>isOdd</code>函数，形成了死循环。所以 Brendan Eich 设计了函数提升这一形式，将函数提升至当前作用域的顶部。</p>
+<blockquote>
 <p><img src="https://i.jpg.dog/img/cbb43f09d226cac5cfa207115c7beb8f.png"></p>
-<p>最后 Brendan Eich 总结到：变量提升是人为实现的问题，而函数提升在当初设计时是有目的的。</p>
+</blockquote>
+<p>最后 Brendan Eich 总结到：<strong>变量提升是人为实现的问题，而函数提升在当初设计时是有目的的</strong>。</p>
 <blockquote>
 <p><em>参考 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuhe688/p/5891273.html">liuhe688 博文 《JavaScript: 变量提升和函数提升》</a></em></p>
 </blockquote>
@@ -325,7 +327,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2021-04-28");
+        var dateUpdate = Date.parse("2021-05-02");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -340,6 +342,8 @@
 
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2021-04-28T13:55:00.000Z" itemprop="datePublished">2021-04-28</time>
+
+    , 最后修改于&nbsp;<time datetime="2021-05-02T13:49:29.535Z" itemprop="dateModified">2021-05-02</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
