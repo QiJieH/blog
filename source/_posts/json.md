@@ -13,7 +13,7 @@ tags:
  - javascript
 ---
 
-JavaScript 对象表示法（JavaScript Object Notation, 简称 JSON ）是一种轻量级的数据交换格式。**它基于 JavaScript 的对象字面量表示法，那是 JavaScript 最精华的部分之一**。<!-- more -->尽管只是 **JavaScript 的一个子集**，但它与语言无关。所有以现代编程语言编写的程序，都可以用它来彼此交换数据。它是一种文本格式，所以可以被人和机器阅读。它易于实现且易于使用。大量关于 JSON 的资料都可以在 [http:///www.json.org/](http:///www.json.org) 中找到。
+JavaScript 对象表示法（JavaScript Object Notation, 简称 JSON ）是一种轻量级的数据交换格式。**它基于 JavaScript 的对象字面量表示法，那是 JavaScript 最精华的部分之一**。<!-- more -->尽管只是 **JavaScript 的一个子集**，但它与语言无关。所有以现代编程语言编写的程序，都可以用它来彼此交换数据。它是一种文本格式，所以可以被人和机器阅读。它易于实现且易于使用。大量关于 JSON 的资料都可以在 [http://www.json.org/json-zh.html](http://www.json.org/json-zh.html) 中找到。
 
 ## JSON 语法
 

@@ -4,7 +4,7 @@ date: 2021-4-27 23:44
 updated: 
 toc: false
 comments: true
-thumbnail: ''
+thumbnail: 'https://i.jpg.dog/img/cc3724bf8d77b7a3d24bd2efd703b7a8.jpg'
 categories:
  - FontEnd
 tags:
@@ -28,7 +28,7 @@ null == undefined  //true
 '\t\r\n' == 0      //true
 ```
 
-`==` 运算符对*传递性*的缺乏值得我们警惕。我的建议是永远不要使用那对邪恶的孪生兄弟。相反，请始终使用 `===` 和 `!==` 。如果以上所有的比较使用 `===` 运算符，结果都是 `false`。
+`==` 运算符对*传递性*的缺乏值得我们警惕。我的建议是永远不要使用那对邪恶的孪生兄弟。相反，**请始终使用 `===` 和 `!==`** 。如果以上所有的比较使用 `===` 运算符，结果都是 `false`。
 
 > *传递性*是一种编程约定。可以这么理解：对于任意的引用值`x`, `y`和`z`，如果 `x==y`和`y==z`为`true`，那么`x==z`为`true`。而 JavaScript 中的 `==` 运算符在某些特例是违背了传递性。
 
