@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+
+<!-- comment -->
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="//cdn1.lncld.net">
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>使用 ODT选择性安装 office | QiJieH の Link</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/blog/img/avatar.jpg">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/blog/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/blog/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/blog/css/highlight/atelier-heath-light.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/blog/css/highlight/atelier-heath-light.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="QiJieH の Link"><meta name="msapplication-starturl" content="http://qijieh.gitee.io/blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QiJieH の Link"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="使用 ODT选择性安装 office | QiJieH の Link"><meta property="og:site_name" content="QiJieH の Link"><meta property="og:type" content="article"><meta property="og:url" content="http://qijieh.gitee.io/blog/2021/05/31/office-deployment-tool/"><meta property="og:locale" content="zh-CN"><meta name="description" content="借助 Office 部署工具 (ODT)，可以将 Microsoft 365 应用版下载并部署到你的客户端计算机。使用 ODT，可以更好地控制 Office 安装。也就是说，可以定义要安装的产品和语言、更新这些产品的方式，以及是否向用户显示安装体验。 - QiJieH - QiJieH の Link"><meta name="keywords" content="office, tool"><meta property="og:image" content="https://i.jpg.dog/img/b56c76e83705c3595a40ffd8a15c8dbd.png"><meta property="og:image" content="https://i.jpg.dog/img/9e873d6547f513c0c4538bb3a90b43c4.png"><meta property="article:published_time" content="2021-05-31T11:12:00.000Z"><meta property="article:modified_time" content="2021-05-31T12:07:06.820Z"><meta property="og:updated_time" content="2021-05-31T12:07:06.820Z"><meta property="article:author" content="QiJieH"><meta property="article:tag" content="office, tool"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://i.jpg.dog/img/b56c76e83705c3595a40ffd8a15c8dbd.png">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://qijieh.gitee.io/blog/2021/05/31/office-deployment-tool/">
+
+    <meta name="generator" content="Hexo 5.2.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://qijieh.gitee.io/blog/2021/05/31/office-deployment-tool/",
+    "@type": "BlogPosting",
+    "logo": "http://qijieh.gitee.io/blog/img/avatar.jpg",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://qijieh.gitee.io/blog/2021/05/31/office-deployment-tool/"
+    },
+    "headline": "使用 ODT选择性安装 office | QiJieH の Link",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://i.jpg.dog/img/b56c76e83705c3595a40ffd8a15c8dbd.png"
+    },
+    
+    "datePublished": "2021-05-31T11:12:00.000Z",
+    "dateModified": "2021-05-31T12:07:06.820Z",
+    "author": {
+        "@type": "Person",
+        "name": "QiJieH",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://qijieh.gitee.io/blog/img/avatar.jpg"
+        },
+        "description": "stay foolish, stay hungry"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "QiJieH の Link",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://qijieh.gitee.io/blog/img/avatar.jpg"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://qijieh.gitee.io/blog/blog/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "office, tool",
+    "description": "借助 Office 部署工具 (ODT)，可以将 Microsoft 365 应用版下载并部署到你的客户端计算机。使用 ODT，可以更好地控制 Office 安装。也就是说，可以定义要安装的产品和语言、更新这些产品的方式，以及是否向用户显示安装体验。 - QiJieH - QiJieH の Link"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/blog/">QiJieH の Link</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                stay foolish, stay hungry
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/blog/" class="navbar-link">首页</a>
+    
+    
+    
+        <a href="/blog/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/blog/links" class="navbar-link">链接</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+            <div class="card-image lazyload" data-bg="url('https://i.jpg.dog/img/b56c76e83705c3595a40ffd8a15c8dbd.png')"></div>
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">使用 ODT选择性安装 office</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/blog/img/avatar.jpg" src="/blog/img/suka-lazyload.gif" alt="QiJieH's Avatar">
+        <span>2021-05-31</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/blog/categories/Other/">Other</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%8B%E8%BD%BDODT"><span class="post-toc-text">下载ODT</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="post-toc-text">编辑配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%90%E8%A1%8CODT"><span class="post-toc-text">运行ODT</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>借助 Office 部署工具 (ODT)，可以将 Microsoft 365 应用版下载并部署到你的客户端计算机。使用 ODT，可以更好地控制 Office 安装。也就是说，可以定义要安装的产品和语言、更新这些产品的方式，以及是否向用户显示安装体验。<a id="more"></a></p>
+<p>以上介绍摘自官方文档，简单来说就是通过这个工具允许用户自定义安装的 office 套件及其行为，<strong>让你可以脱离使用官方安装程序带来的office全家桶，仅选择你需要的组件即可</strong>。</p>
+<h2 id="下载ODT"><a href="#下载ODT" class="headerlink" title="下载ODT"></a>下载ODT</h2><p>从<a target="_blank" rel="noopener" href="https://go.microsoft.com/fwlink/p/?LinkID=626065">ODT下载页面</a>下载ODT工具。</p>
+<p>下载文件后，运行自解压缩可执行文件，其中包含 Office 部署工具可执行文件 (setup.exe) 和一个示例配置文件 (configuration.xml)。</p>
+<h2 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h2><p>你可以参考<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/deployoffice/office-deployment-tool-configuration-options#example-of-a-standard-configuration-file">官方文档说明</a>自行编辑你的配置文件。</p>
+<p>下面是一个简单示例，仅安装Word, Excel, 和PPT。你也可以通过这个配置文件排除已安装的Access, OneDrive等： </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Add</span> <span class="attr">SourcePath</span>=<span class="string">&quot;\\Server\Share&quot;</span> <span class="attr">OfficeClientEdition</span>=<span class="string">&quot;32&quot;</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Product</span> <span class="attr">ID</span>=<span class="string">&quot;O365ProPlusRetail&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Language</span> <span class="attr">ID</span>=<span class="string">&quot;zh-cn&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Access&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Groove&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Lync&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;OneDrive&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;OneNote&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Outlook&quot;</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ExcludeApp</span> <span class="attr">ID</span>=<span class="string">&quot;Publisher&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Product</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Add</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Updates</span> <span class="attr">Enabled</span>=<span class="string">&quot;FALSE&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>不建议自行手动配置这些代码</strong>，因为这样极大可能会导致种种错误（吃了教训），更推荐使用<a target="_blank" rel="noopener" href="https://config.office.com/deploymentsettings">office 自定义工具</a>这个网页来可视整个过程，在<strong>产品与版本的应用项目中你可以选择需要排除的应用（关闭为排除）</strong>，选择完你的配置后，点击导出<code>Office Open XML</code> 格式进行下载</p>
+<p><img src="https://i.jpg.dog/img/9e873d6547f513c0c4538bb3a90b43c4.png" alt="9e873d6547f513c0c4538bb3a90b43c4.png"></p>
+<h2 id="运行ODT"><a href="#运行ODT" class="headerlink" title="运行ODT"></a>运行ODT</h2><p>在之前解压得到的可执行文件目录下打开命令行（管理员身份），运行以下命令后便会根据配置文件进行下载安装。</p>
+<ul>
+<li><p>如果未安装目标版本office:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setup.exe /download config.xml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>已安装但想通过配置文件删除和更新：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setup.exe /configure config.xml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>等待运行完成，这样你便可以拥有一个你想要的 office。</p>
+<blockquote>
+<p>参考文档：<br><a target="_blank" rel="noopener" href="https://sspai.com/post/55644">巧用官方 ODT 清爽安装 Office | 一日一技</a><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/deployoffice/overview-office-deployment-tool">Office 部署工具概述</a><br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/deployoffice/office-deployment-tool-configuration-options#example-of-a-standard-configuration-file">Office 部署工具的配置选项</a></p>
+</blockquote>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2021-05-31");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2021-05-31T11:12:00.000Z" itemprop="datePublished">2021-05-31</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/blog/categories/Other/'>Other</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/blog/tags/office/" rel="tag">#&nbsp;office</a>
+
+<a class="post-tags-list-item" href="/blog/tags/tool/" rel="tag">#&nbsp;tool</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/blog/2021/05/30/dom-scripting-art/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">《JavaScript DOM 编程艺术》 读后心得</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="vcomments"></div>
+
+<script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = '' === 'true';
+    var verify = '' === 'true';
+    new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        appId: "pTzaoyKfCTw4zkLCI6m5SUz1-gzGzoHsz",
+        appKey: "5aCoVNPllel3XXlnHpbJ3gtl",
+        placeholder: "Just go go",
+        meta: guest_info,
+        pageSize:'10',
+        avatar:'retro',
+        lang:'zh-cn',
+        guest_info: guest_info,
+        visitor: false
+    });
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://qijieh.gitee.io/blog">QiJieH の Link</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2019;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/blog/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+<!-- Comment -->
+
+    
+        
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
