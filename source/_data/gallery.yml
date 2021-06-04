@@ -2,7 +2,7 @@
 #     full: # 完整图片 URL
 #     thumb: # 缩略图 URL
 #     descr: # 图片简介
-"earth":
-    full: https://t7.baidu.com/it/u=2621658848,3952322712&fm=193&f=GIF
-    thumb: https://t7.baidu.com/it/u=2621658848,3952322712&fm=193&f=GIF
-    descr: pixiv.net/i/70337807
+住み家:
+    full: https://i.jpg.dog/img/ce0ebf83eeef5064c18a059e55f99603.jpg
+    thumb: https://i.jpg.dog/img/ce0ebf83eeef5064c18a059e55f99603.jpg
+    descr: 'pixiv.net/i/70337807'

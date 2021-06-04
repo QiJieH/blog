@@ -4,7 +4,7 @@ date: 2021-5-30 18:39
 updated: 
 toc: true
 comments: true
-thumbnail: 'https://i.jpg.dog/img/ce0ebf83eeef5064c18a059e55f99603.jpg'
+thumbnail: 'https://i.jpg.dog/img/b7c255605b1a1217699abdb13bfef30c.png'
 categories:
  - FontEnd
 tags:
