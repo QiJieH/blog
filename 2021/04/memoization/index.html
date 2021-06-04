@@ -46,7 +46,7 @@
     <meta name="renderer" content="webkit">
 
     <!-- Title -->
-    <title>JSMin 初步使用 | QiJieH の Link</title>
+    <title>算法优化之记忆 | QiJieH の Link</title>
 
     <!-- Favicons -->
     <link rel="icon" type="image&#x2F;ico" href="/blog/img/avatar.jpg">
@@ -146,12 +146,12 @@
     <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="QiJieH の Link"><meta name="msapplication-starturl" content="http://qijieh.gitee.io/blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QiJieH の Link"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="JSMin 初步使用 | QiJieH の Link"><meta property="og:site_name" content="QiJieH の Link"><meta property="og:type" content="article"><meta property="og:url" content="http://qijieh.gitee.io/blog/2021/05/27/jsmin-guide/"><meta property="og:locale" content="zh-CN"><meta name="description" content="JSMin 是一个压缩工具，可以从JavaScript 文件中删除注释和不必要的空白。它通常会将文件大小减少一半，从而加快下载速度。 - QiJieH - QiJieH の Link"><meta name="keywords" content="javascript, jsmin"><meta property="article:published_time" content="2021-05-27T09:25:00.000Z"><meta property="article:modified_time" content="2021-05-27T14:20:18.643Z"><meta property="og:updated_time" content="2021-05-27T14:20:18.643Z"><meta property="article:author" content="QiJieH"><meta property="article:tag" content="javascript, jsmin"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="算法优化之记忆 | QiJieH の Link"><meta property="og:site_name" content="QiJieH の Link"><meta property="og:type" content="article"><meta property="og:url" content="http://qijieh.gitee.io/blog/2021/04/memoization/"><meta property="og:locale" content="zh-CN"><meta name="description" content="在计算机领域，记忆（memoization）是主要用于加速程序计算的一种优化技术，它使得函数避免重复演算之前已被处理的输入，而返回已缓存的结果。 - QiJieH - QiJieH の Link"><meta name="keywords" content="algorithm, optimization, memoization"><meta property="article:published_time" content="2021-04-24T16:19:00.000Z"><meta property="article:modified_time" content="2021-04-27T15:44:13.416Z"><meta property="og:updated_time" content="2021-04-27T15:44:13.416Z"><meta property="article:author" content="QiJieH"><meta property="article:tag" content="algorithm, optimization, memoization"><meta name="twitter:card" content="summary">
 
     
 
     <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://qijieh.gitee.io/blog/2021/05/27/jsmin-guide/">
+    <link rel="canonical" href="http://qijieh.gitee.io/blog/2021/04/memoization/">
 
     <meta name="generator" content="Hexo 5.2.0">
 
@@ -172,22 +172,22 @@
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
-    "url": "http://qijieh.gitee.io/blog/2021/05/27/jsmin-guide/",
+    "url": "http://qijieh.gitee.io/blog/2021/04/memoization/",
     "@type": "BlogPosting",
     "logo": "http://qijieh.gitee.io/blog/img/avatar.jpg",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://qijieh.gitee.io/blog/2021/05/27/jsmin-guide/"
+        "@id": "http://qijieh.gitee.io/blog/2021/04/memoization/"
     },
-    "headline": "JSMin 初步使用 | QiJieH の Link",
+    "headline": "算法优化之记忆 | QiJieH の Link",
     
     "image": {
         "@type": "ImageObject",
         "url": "http://qijieh.gitee.io/blog/img/avatar.jpg"
     },
     
-    "datePublished": "2021-05-27T09:25:00.000Z",
-    "dateModified": "2021-05-27T14:20:18.643Z",
+    "datePublished": "2021-04-24T16:19:00.000Z",
+    "dateModified": "2021-04-27T15:44:13.416Z",
     "author": {
         "@type": "Person",
         "name": "QiJieH",
@@ -212,8 +212,8 @@
         "query-input": "required name=search_term_string"
     },
     
-    "keywords": "javascript, jsmin",
-    "description": "JSMin 是一个压缩工具，可以从JavaScript 文件中删除注释和不必要的空白。它通常会将文件大小减少一半，从而加快下载速度。 - QiJieH - QiJieH の Link"
+    "keywords": "algorithm, optimization, memoization",
+    "description": "在计算机领域，记忆（memoization）是主要用于加速程序计算的一种优化技术，它使得函数避免重复演算之前已被处理的输入，而返回已缓存的结果。 - QiJieH - QiJieH の Link"
 }
 </script>
 
@@ -265,7 +265,7 @@
                 <!-- # Post Header Info # -->
                 <div class="card-header">
                     
-    <h1 class="card-title h3 mb-2">JSMin 初步使用</h1>
+    <h1 class="card-title h3 mb-2">算法优化之记忆</h1>
 
 
 
@@ -273,10 +273,10 @@
 <div class="post-header-info">
     <p class="post-header-info-left text-gray">
         <img class="author-thumb lazyload" data-src="/blog/img/avatar.jpg" src="/blog/img/suka-lazyload.gif" alt="QiJieH's Avatar">
-        <span>2021-05-27</span>
+        <span>2021-04-25</span>
         
             <span class="suka-devide-dot"></span>
-            <a class="category-link" href="/blog/categories/FontEnd/">FontEnd</a>
+            <a class="category-link" href="/blog/categories/Others/">Others</a>
         
         
         
@@ -289,20 +289,32 @@
                 <div class="card-body">
                     
                     <article id="post-content">
-                        <p>JSMin 是一个压缩工具，可以从JavaScript 文件中删除注释和不必要的空白。它通常会将文件大小减少一半，从而加快下载速度。 <a id="more"></a>它还鼓励更具表现力的编程风格，因为它消除了js和其文档的下载成本。</p>
-<ul>
-<li>JSMin：<a target="_blank" rel="noopener" href="https://www.crockford.com/jsmin.html">https://www.crockford.com/jsmin.html</a></li>
-<li>Github: <a target="_blank" rel="noopener" href="https://github.com/douglascrockford/JSMin">https://github.com/douglascrockford/JSMin</a></li>
-</ul>
-<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><p>通过上面提供的链接下载可执行文件<code>jsmin.exe</code>或<code>jsmin.c</code>（要求c运行环境）,键入<strong>命令行</strong>指令</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jsmin &lt;source.js&gt; outfile.js</span><br></pre></td></tr></table></figure>
-<p>参数说明：</p>
-<ul>
-<li><strong><code>jsmin</code></strong>: 可执行文件位置。</li>
-<li><strong><code>source.js</code></strong>: 待压缩文件。</li>
-<li><strong><code>outfile.js</code></strong>: 输出文件，不指定路径会输出在当前命令行路径下。</li>
-</ul>
-<p>在压缩js文件之前，最好确保你的文件符合JSLint 语法要求。</p>
+                        <!-- https://i.jpg.dog/img/35bacce798103aab08b90462af169e79.jpg -->
+<p>在计算机领域，<em>记忆（memoization）</em>是主要用于加速程序计算的一种优化技术，它使得函数避免重复演算之前已被处理的输入，而返回已缓存的结果。</p>
+<a id="more"></a>
+
+<h2 id="记忆-Memoization"><a href="#记忆-Memoization" class="headerlink" title="记忆 Memoization"></a>记忆 Memoization</h2><p>函数可以将先前操作的结果记录在某个对象里，从而避免无谓的重复运算。这种优化被称为<strong><em>记忆（memoization）</em></strong>。JavaScript 的对象和数组要实现这种优化是非常方便的。</p>
+<p>比如说，我们想要一个递归函数来计算 Fibonacci 数列。一个 Fibonacci 数字是之前两个 Fibonacci 数字之和。最前面的两个数字是 0 和 1。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibonacci = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n &lt; <span class="number">2</span> ? n : fibonacci(n - <span class="number">1</span>) + fibonacci(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt;= <span class="number">10</span>; i += <span class="number">1</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i + <span class="string">&quot;: &quot;</span> + fibonacci(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样是可以工作的，但它做了很多无谓的工作。<code>fib</code> 函数被调用了 453 次。我们调用了 11 次，而它自身调用了 442 次去计算可能已被刚计算过的值。如果我们让该函数具备<em>记忆</em>功能，就可以显著地减少运算量。</p>
+<p>我们在一个名为 <code>memo</code> 的数组里保存我们的存储结果，存储结果可以隐藏在闭包中。当函数被调用时，这个函数首先检查结果是否已存在，如果已经存在，就立即返回这个结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibonacci = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> memo = [<span class="number">0</span>, <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">let</span> fib = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = memo[n];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> result !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">      result = fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>);</span><br><span class="line">      memo[n] = result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> fib;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+
+<p>这个函数返回同样的结果，但它只被调用了 29 次。我们调用了它 11 次，它调用了自己 181 次去取得之前存储的结果。</p>
+<p>我们可以吧这种技术推而广之，编写一个函数帮助我们构造带记忆功能的函数。 <code>memoizer</code> 函数取得一个初始的 <code>memo</code> 数组和 <code>formula</code> 函数。它返回一个管理 <code>memo</code> 存储和在需要时调用 <code>formula</code> 函数的 <code>recur</code> 函数。我们把这个 <code>recur</code> 函数和它的参数传递给 <code>formula</code> 函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> memoizer = <span class="function"><span class="keyword">function</span>(<span class="params">memo, formula</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> recur = <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> result !== <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">      result = formula(recur, n);</span><br><span class="line">      memo[n] = result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> recur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在，我们可以使用 <code>memoizer</code> 函数来定义 <code>fibonacci</code> 函数，提供其初始的 <code>memo</code> 数组和 <code>formula</code> 函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fibonacci = memoizer([<span class="number">0</span>, <span class="number">1</span>], <span class="function"><span class="keyword">function</span>(<span class="params">recur, n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> recur(n - <span class="number">1</span>) + recur(n - <span class="number">2</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>通过设计这种产生另一个函数的函数，极大地减少了我们的工作量。例如，要产生一个可记忆的阶乘函数，我们只需要通过基本的阶乘公式即可：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> factorial = memoizer([<span class="number">1</span>, <span class="number">1</span>], <span class="function"><span class="keyword">function</span>(<span class="params">recur, n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n * recur(n - <span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p><em>《JavaScript 语言精粹》（修订版）Douglas Crockford著 电子工业出版社</em></p>
+</blockquote>
 
                     </article>
                     
@@ -311,7 +323,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2021-05-27");
+        var dateUpdate = Date.parse("2021-04-27");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -325,14 +337,16 @@
     </script>
 
 
-<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2021-05-27T09:25:00.000Z" itemprop="datePublished">2021-05-27</time>
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2021-04-24T16:19:00.000Z" itemprop="datePublished">2021-04-25</time>
+
+    , 最后修改于&nbsp;<time datetime="2021-04-27T15:44:13.416Z" itemprop="dateModified">2021-04-27</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">
 
 <span class="post-categories-list mt-2">
 
-<a class="post-categories-list-item" href='/blog/categories/FontEnd/'>FontEnd</a>
+<a class="post-categories-list-item" href='/blog/categories/Others/'>Others</a>
 
 </span>
 
@@ -340,9 +354,11 @@
 
 <span class="post-tags-list mt-2">
 
-<a class="post-tags-list-item" href="/blog/tags/javascript/" rel="tag">#&nbsp;javascript</a>
+<a class="post-tags-list-item" href="/blog/tags/algorithm/" rel="tag">#&nbsp;algorithm</a>
 
-<a class="post-tags-list-item" href="/blog/tags/jsmin/" rel="tag">#&nbsp;jsmin</a>
+<a class="post-tags-list-item" href="/blog/tags/optimization/" rel="tag">#&nbsp;optimization</a>
+
+<a class="post-tags-list-item" href="/blog/tags/memoization/" rel="tag">#&nbsp;memoization</a>
 
 </span>
 
@@ -355,21 +371,14 @@
     <!-- Prev Nav -->
     
         <li class="page-item page-prev">
-            <a href="/blog/2021/05/30/dom-scripting-art/" rel="prev">
+            <a href="/blog/2021/04/json/" rel="prev">
                 <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">《JavaScript DOM 编程艺术》 读后心得</div>
+                <div class="page-item-subtitle">深入浅出 JSON</div>
             </a>
         </li>
     
 
     <!-- Next Nav -->
-    
-        <li class="page-item page-next">
-            <a href="/blog/2021/04/28/hoisting/" rel="next">
-                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">JavaScript 提升（Hoisting）</div>
-            </a>
-        </li>
     
 </ul>
 </div>

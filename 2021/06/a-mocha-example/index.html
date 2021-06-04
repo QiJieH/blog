@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+
+<!-- comment -->
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="//cdn1.lncld.net">
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>测试框架 Mocha 快速上手 | QiJieH の Link</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image&#x2F;ico" href="/blog/img/avatar.jpg">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/blog/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/blog/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/blog/css/highlight/atelier-heath-light.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/blog/css/highlight/atelier-heath-light.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="QiJieH の Link"><meta name="msapplication-starturl" content="http://qijieh.gitee.io/blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QiJieH の Link"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="测试框架 Mocha 快速上手 | QiJieH の Link"><meta property="og:site_name" content="QiJieH の Link"><meta property="og:type" content="article"><meta property="og:url" content="http://qijieh.gitee.io/blog/2021/06/a-mocha-example/"><meta property="og:locale" content="zh-CN"><meta name="description" content="Mocha 是一个能够运行在 Node.js 和浏览器中的多功能 JavaScript 测试框架，它让异步测试变得 简单 和 有趣。Mocha 顺序运行测试，并给出灵活而精确的报告，同时能够将未捕获的异常映射到准确的测试用例上。Mocha 源码托管在 GitHub 上。 - QiJieH - QiJieH の Link"><meta name="keywords" content="javascript, mocha, software test"><meta property="og:image" content="https://i.jpg.dog/img/f08b76a3f6b5b9f56f040a580b74186f.png"><meta property="og:image" content="https://i.jpg.dog/img/49e6f84b719d448aa01eb1d85faf62a0.png"><meta property="og:image" content="https://i.jpg.dog/img/f874240c222af6d40fcaf9a92d1f645b.png"><meta property="article:published_time" content="2021-06-01T15:16:00.000Z"><meta property="article:modified_time" content="2021-06-04T15:48:57.357Z"><meta property="og:updated_time" content="2021-06-04T15:48:57.357Z"><meta property="article:author" content="QiJieH"><meta property="article:tag" content="javascript, mocha, software test"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://i.jpg.dog/img/f08b76a3f6b5b9f56f040a580b74186f.png">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://qijieh.gitee.io/blog/2021/06/a-mocha-example/">
+
+    <meta name="generator" content="Hexo 5.2.0">
+
+    <!-- ### Analytics ### -->
+    
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://qijieh.gitee.io/blog/2021/06/a-mocha-example/",
+    "@type": "BlogPosting",
+    "logo": "http://qijieh.gitee.io/blog/img/avatar.jpg",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://qijieh.gitee.io/blog/2021/06/a-mocha-example/"
+    },
+    "headline": "测试框架 Mocha 快速上手 | QiJieH の Link",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://i.jpg.dog/img/f08b76a3f6b5b9f56f040a580b74186f.png"
+    },
+    
+    "datePublished": "2021-06-01T15:16:00.000Z",
+    "dateModified": "2021-06-04T15:48:57.357Z",
+    "author": {
+        "@type": "Person",
+        "name": "QiJieH",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://qijieh.gitee.io/blog/img/avatar.jpg"
+        },
+        "description": "stay foolish, stay hungry"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "QiJieH の Link",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://qijieh.gitee.io/blog/img/avatar.jpg"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://qijieh.gitee.io/blog/blog/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "javascript, mocha, software test",
+    "description": "Mocha 是一个能够运行在 Node.js 和浏览器中的多功能 JavaScript 测试框架，它让异步测试变得 简单 和 有趣。Mocha 顺序运行测试，并给出灵活而精确的报告，同时能够将未捕获的异常映射到准确的测试用例上。Mocha 源码托管在 GitHub 上。 - QiJieH - QiJieH の Link"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/blog/">QiJieH の Link</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                stay foolish, stay hungry
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/blog/" class="navbar-link">首页</a>
+    
+    
+    
+        <a href="/blog/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/blog/links" class="navbar-link">链接</a>
+    
+    
+    
+</nav>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+            <div class="card-image lazyload" data-bg="url('https://i.jpg.dog/img/f08b76a3f6b5b9f56f040a580b74186f.png')"></div>
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">测试框架 Mocha 快速上手</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/blog/img/avatar.jpg" src="/blog/img/suka-lazyload.gif" alt="QiJieH's Avatar">
+        <span>2021-06-01</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/blog/categories/Other/">Other</a><span class="suka-devide-dot"></span><a class="category-link" href="/blog/categories/Other/BackEnd/">BackEnd</a><span class="suka-devide-dot"></span><a class="category-link" href="/blog/categories/Other/BackEnd/FrontEnd/">FrontEnd</a>
+        
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="post-toc-text">编写测试脚本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%96%AD%E8%A8%80%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="post-toc-text">断言库的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%80%E5%A7%8B%E6%B5%8B%E8%AF%95"><span class="post-toc-text">开始测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0"><span class="post-toc-text">命令行参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#help%EF%BC%8C-h"><span class="post-toc-text">--help，-h</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reporter-R"><span class="post-toc-text">--reporter,-R</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#watch-w"><span class="post-toc-text">--watch, -w</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bail-b"><span class="post-toc-text">--bail, -b</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#grep-g"><span class="post-toc-text">--grep, -g</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#invert-i"><span class="post-toc-text">--invert, -i</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="post-toc-text">配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ES6%E6%B5%8B%E8%AF%95"><span class="post-toc-text">ES6测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%B5%8B%E8%AF%95"><span class="post-toc-text">异步测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%A0%E7%BB%9F%E5%9B%9E%E8%B0%83"><span class="post-toc-text">传统回调</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Promise"><span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#async-await"><span class="post-toc-text">async &#x2F; await</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%94%A8%E4%BE%8B%E9%92%A9%E5%AD%90"><span class="post-toc-text">用例钩子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%94%A8%E4%BE%8B%E7%AE%A1%E7%90%86"><span class="post-toc-text">用例管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B5%8B%E8%AF%95"><span class="post-toc-text">浏览器测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A%E6%96%87%E6%A1%A3"><span class="post-toc-text">生成测试报告文档</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E5%BC%95%E7%94%A8"><span class="post-toc-text">参考引用</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p><a target="_blank" rel="noopener" href="https://mochajs.org/">Mocha</a> 是一个能够运行在 Node.js 和浏览器中的多功能 JavaScript 测试框架，它让异步测试变得 简单 和 有趣。Mocha 顺序运行测试，并给出灵活而精确的报告，同时能够将未捕获的异常映射到准确的测试用例上。Mocha 源码托管在 <a target="_blank" rel="noopener" href="https://github.com/mochajs/mocha">GitHub</a> 上。<a id="more"></a></p>
+<p>Mocha（发音”摩卡”）诞生于2011年，是现在最流行的JavaScript测试框架之一，在浏览器和Node环境都可以使用。</p>
+<p>软件测试向来是软件开发过程中的重要流程，好的软件测试能够使项目更加健壮，质量更加可靠，也对提升用户体验有极大帮助。而测试框架的存在就是为了提高测试效率和质量，使得测试过程变得快速和可控。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>一般情况下，测试框架都是作为项目的开发依赖进行安装：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -D mocha</span><br></pre></td></tr></table></figure>
+
+<p>推荐同时其安装在全局，便于测试：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -G mocha</span><br></pre></td></tr></table></figure>
+
+<h2 id="编写测试脚本"><a href="#编写测试脚本" class="headerlink" title="编写测试脚本"></a>编写测试脚本</h2><p>我们先从一个简单的测试脚本开始（测试脚本是为了测试源码而专门编写的脚本）。</p>
+<p>这是一个待测试源码<code>add.js</code>：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title">add</span>(x, y) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="type">x</span> + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = add;</span><br></pre></td></tr></table></figure>
+<p>为了测试这个函数，我们需要编写一个测试脚本。</p>
+<p>通常，测试脚本都是与源文件同名，以<code>.test.js</code>或<code>.spec.js</code>后缀结尾。比如<code>add.js</code>的测试脚本文件名为<code>add.test.js</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> add = <span class="built_in">require</span>(<span class="string">&#x27;./add.js&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">&#x27;chai&#x27;</span>).expect;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&#x27;加法函数的测试&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  it(<span class="string">&#x27;1 加 1 应该等于 2&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(add(<span class="number">1</span>, <span class="number">1</span>)).to.be.equal(<span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>在第一行我们引入了待测试的<code>add.js</code>文件，第二行则是引入的第三方断言库<code>chai</code>。</p>
+<p><code>describe</code>代码块是一个测试套件，其中可以包含多个测试用例<code>it</code>。</p>
+<p>在本次名为<code>加法函数的测试</code>的测试中，使用了一个名为<code>1 加 1 应该等于 2</code>的测试用例，这个测试用例断言<code>add(1，1)</code>是否等于<code>2</code>，如果不等会为我们抛出错误，而mocha则会抓取错误认为测试用例不通过。</p>
+<p>事实上，如果断言没有发生，即没有抛出错误，mocha就会认为用例通过：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">it(<span class="string">&#x27;1 加 1 应该等于 2&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面这个用例内部没有任何代码，由于没有抛出错误，所以还是会通过。</p>
+<h2 id="断言库的使用"><a href="#断言库的使用" class="headerlink" title="断言库的使用"></a>断言库的使用</h2><p>Mocha 允许你使用任何你喜欢的断言库。在上面的例子中，我们使用的是第三方断言库<code>chai</code>。通常情况下，只要它能抛出 Error 就可以！这就意味着你可以使用下面列出的断言库：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Automattic/expect.js">expect.js</a> - <code>expect()</code> 风格的断言</li>
+<li><a target="_blank" rel="noopener" href="https://www.chaijs.com/">chai</a> - <code>expect()</code>、<code>assert()</code> 和 <code>should</code> 风格的断言</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tj/better-assert">better-assert</a> - C文档风格 <code>assert()</code></li>
+<li>等等</li>
+</ul>
+<p>当然你也可以使用 Node.js 的内置 <a target="_blank" rel="noopener" href="https://nodejs.org/api/assert.html">assert</a> 模块</p>
+<p><code>expect</code>断言的优点是很接近自然语言，下面是一些例子。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 相等或不相等</span></span><br><span class="line">expect(<span class="number">4</span> + <span class="number">5</span>).to.be.equal(<span class="number">9</span>);</span><br><span class="line">expect(<span class="number">4</span> + <span class="number">5</span>).to.be.not.equal(<span class="number">10</span>);</span><br><span class="line">expect(foo).to.be.deep.equal(&#123; <span class="attr">bar</span>: <span class="string">&#x27;baz&#x27;</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 布尔值为true</span></span><br><span class="line">expect(<span class="string">&#x27;everthing&#x27;</span>).to.be.ok;</span><br><span class="line">expect(<span class="literal">false</span>).to.not.be.ok;</span><br><span class="line"></span><br><span class="line"><span class="comment">// typeof</span></span><br><span class="line">expect(<span class="string">&#x27;test&#x27;</span>).to.be.a(<span class="string">&#x27;string&#x27;</span>);</span><br><span class="line">expect(&#123; <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span> &#125;).to.be.an(<span class="string">&#x27;object&#x27;</span>);</span><br><span class="line">expect(foo).to.be.an.instanceof(Foo);</span><br><span class="line"></span><br><span class="line"><span class="comment">// include</span></span><br><span class="line">expect([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]).to.include(<span class="number">2</span>);</span><br><span class="line">expect(<span class="string">&#x27;foobar&#x27;</span>).to.contain(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line">expect(&#123; <span class="attr">foo</span>: <span class="string">&#x27;bar&#x27;</span>, <span class="attr">hello</span>: <span class="string">&#x27;universe&#x27;</span> &#125;).to.include.keys(<span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// empty</span></span><br><span class="line">expect([]).to.be.empty;</span><br><span class="line">expect(<span class="string">&#x27;&#x27;</span>).to.be.empty;</span><br><span class="line">expect(&#123;&#125;).to.be.empty;</span><br><span class="line"></span><br><span class="line"><span class="comment">// match</span></span><br><span class="line">expect(<span class="string">&#x27;foobar&#x27;</span>).to.match(<span class="regexp">/^foo/</span>);</span><br></pre></td></tr></table></figure>
+
+<p>你可以自行翻阅<code>chai</code>的相关<a target="_blank" rel="noopener" href="https://www.chaijs.com/api/bdd/">文档</a>查询其API</p>
+<h2 id="开始测试"><a href="#开始测试" class="headerlink" title="开始测试"></a>开始测试</h2><p>有了测试脚本之后就可以使用mocha来执行测试脚本了。</p>
+<p>mocha会默认运行<code>test</code>文件下的<code>.test.js</code>和<code>.spec.js</code>后缀文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha</span></span><br></pre></td></tr></table></figure>
+
+<p>你也可以指定文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha add.test.js</span></span><br></pre></td></tr></table></figure>
+
+<p>或者指定多个测试文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha file1 file2 file3</span></span><br></pre></td></tr></table></figure>
+
+<p>运行测试脚本后，窗口会输出测试过程和结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">加法函数的测试</span><br><span class="line">    ✓ 1 加 1 应该等于 2</span><br><span class="line"></span><br><span class="line">  1 passing (8ms)</span><br></pre></td></tr></table></figure>
+
+<p>如果你的<code>test</code>文件目录下有着子目录，你需要附加参数<code>--recursive</code>来执行所有子目录下的测试脚本:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --recursive</span></span><br><span class="line"></span><br><span class="line">  加法函数的测试</span><br><span class="line">    ✓ 1 加 1 应该等于 2</span><br><span class="line">    ✓ 任何数加0应该等于自身</span><br><span class="line"></span><br><span class="line">  乘法函数的测试</span><br><span class="line">    ✓ 1 乘 1 应该等于 1</span><br><span class="line"></span><br><span class="line">  3 passing (9ms)</span><br></pre></td></tr></table></figure>
+
+<p>当然你也可以通过通配符的方式实现更多行为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha <span class="string">&#x27;test/**/*.@(js|jsx)&#x27;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha <span class="string">&quot;./spec/**/*.js&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h2><h3 id="help，-h"><a href="#help，-h" class="headerlink" title="--help，-h"></a><code>--help</code>，<code>-h</code></h3><p>查看Mocha所有命令行参数</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha -h</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="reporter-R"><a href="#reporter-R" class="headerlink" title="--reporter,-R"></a><code>--reporter</code>,<code>-R</code></h3><p>指定参数报告的展示格式，默认<code>spec</code>格式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 等同于</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mocha --reporter spec</span></span><br></pre></td></tr></table></figure>
+<p>你可以在此处预览其他风格的<a target="_blank" rel="noopener" href="https://mochajs.org/#reporters">报告格式</a>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">spec</span><br><span class="line">dot</span><br><span class="line">nyan</span><br><span class="line">tap</span><br><span class="line">landing</span><br><span class="line">list</span><br><span class="line">progress</span><br><span class="line">json</span><br><span class="line">json-stream</span><br><span class="line">min</span><br><span class="line">doc</span><br></pre></td></tr></table></figure>
+
+<p><code>--reporters</code>参数可以显示所有内置报告参数。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mocha <span class="comment">--repporters</span></span><br></pre></td></tr></table></figure>
+
+
+<p>使用<a target="_blank" rel="noopener" href="https://github.com/adamgruber/mochawesome"><code>mochawesome</code></a>模块，可以生成漂亮的HTML格式的报告。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>npm install -D mochawesome</span><br><span class="line"><span class="variable">$ </span>mocha --reporter mochawesome</span><br></pre></td></tr></table></figure>
+<p>测试结果报告就在mochaawesome-reports子目录生成。</p>
+<p><img src="https://i.jpg.dog/img/49e6f84b719d448aa01eb1d85faf62a0.png" alt="49e6f84b719d448aa01eb1d85faf62a0.png"></p>
+<h3 id="watch-w"><a href="#watch-w" class="headerlink" title="--watch, -w"></a><code>--watch</code>, <code>-w</code></h3><p>监控测试脚本，一旦脚本修改自动运行测试脚本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --watch</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="bail-b"><a href="#bail-b" class="headerlink" title="--bail, -b"></a><code>--bail</code>, <code>-b</code></h3><p>添加<code>bail</code>参数后，如果有一个用例没有通过就会终止测试。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --bail</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="grep-g"><a href="#grep-g" class="headerlink" title="--grep, -g"></a><code>--grep</code>, <code>-g</code></h3><p><code>--grep</code>参数用于搜索测试用例的名称（即<code>it</code>块的第一个参数），然后只执行匹配的测试用例。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --grep <span class="string">&quot;1 加 1&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="invert-i"><a href="#invert-i" class="headerlink" title="--invert, -i"></a><code>--invert</code>, <code>-i</code></h3><p><code>--invert</code>参数表示只运行不符合条件的测试脚本，必须与–grep参数配合使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --grep <span class="string">&quot;1 加 1&quot;</span> --invert</span></span><br></pre></td></tr></table></figure>
+
+<p>更多命令参数参考<a target="_blank" rel="noopener" href="https://mochajs.org/#command-line-usage">文档</a>。</p>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>Mocha 支持使用配置文件定制测试细节，即将命令行参数分离。</p>
+<p>Mocha支持几种格式的配置文件，你可以前往<a target="_blank" rel="noopener" href="https://mochajs.org/#configuring-mocha-nodejs">配置文件</a>查看，这里介绍<code>.mocharc.json</code>的配置方式。</p>
+<p>在<strong>项目根目录</strong>下新建<code>.mocharc.json</code>文件，根据需求添加相应配置项，比如下面文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;reporter&quot;</span>: <span class="string">&quot;tap&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;recursive&quot;</span>: <span class="string">&quot;mytest&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;bail&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>等价于</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --reporter tap --recursive mytest --bail</span></span><br></pre></td></tr></table></figure>
+
+<p>其指定了mocha运行<code>mytest</code>目录及其子目录下的所有测试脚本，以tap格式生成报告，并且出现失败用例时中断测试。</p>
+<h2 id="ES6测试"><a href="#ES6测试" class="headerlink" title="ES6测试"></a>ES6测试</h2><p>如果你的测试脚本使用了ES6语法，你需要使用Babel转码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> add <span class="keyword">from</span> <span class="string">&#x27;../src/add.js&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> chai <span class="keyword">from</span> <span class="string">&#x27;chai&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> expect = chai.expect;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&#x27;加法函数的测试&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  it(<span class="string">&#x27;1 加 1 应该等于 2&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(add(<span class="number">1</span>, <span class="number">1</span>)).to.be.equal(<span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>安装Babel。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install babel-core babel-preset-es2015 -D</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，在项目目录下面，新建一个<code>.babelrc</code>配置文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;presets&quot;</span>: [ <span class="string">&quot;es2015&quot;</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后，使用<code>--require</code>参数指定测试脚本的转码器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --require babel-core/register</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>--compilers</code>已被禁用，参考<a target="_blank" rel="noopener" href="https://github.com/mochajs/mocha/wiki/compilers-deprecation">issue</a></p>
+</blockquote>
+<h2 id="异步测试"><a href="#异步测试" class="headerlink" title="异步测试"></a>异步测试</h2><p>Mocha默认每个测试用例最多执行2000毫秒，如果到时没有得到结果，就报错。对于涉及异步操作的测试用例，这个时间往往是不够的，需要用<code>-t</code>或<code>--timeout</code>参数指定超时门槛。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">it(<span class="string">&#x27;测试应该5000毫秒后结束&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">done</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    x = <span class="literal">false</span>;</span><br><span class="line">    expect(x).to.be.not.ok;</span><br><span class="line">    done(); <span class="comment">// 通知Mocha测试结束</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">setTimeout</span>(f, <span class="number">4000</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码需要等到4秒后才会有结果，如果执行测试就会超时报错，通过<code>--timeout</code>延长超时限制。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha -t 5000 timeout.test.js</span></span><br></pre></td></tr></table></figure>
+
+<p>另外，上面的测试用例里面，有一个<code>done</code>函数。<code>it</code>块执行的时候，传入一个<code>done</code>参数，当测试结束的时候，必须显式调用这个函数，告诉Mocha测试结束了。否则，Mocha就无法知道，测试是否结束，会一直等到超时报错。</p>
+<h3 id="传统回调"><a href="#传统回调" class="headerlink" title="传统回调"></a>传统回调</h3><p>下面是另外一个异步测试的例子<code>async.test.js</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">it(<span class="string">&#x27;异步请求应该返回一个对象&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">done</span>)</span>&#123;</span><br><span class="line">  request</span><br><span class="line">    .get(<span class="string">&#x27;https://api.github.com&#x27;</span>)</span><br><span class="line">    .end(<span class="function"><span class="keyword">function</span>(<span class="params">err, res</span>)</span>&#123;</span><br><span class="line">      expect(res).to.be.an(<span class="string">&#x27;object&#x27;</span>);</span><br><span class="line">      done();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i superagent -D</span></span><br></pre></td></tr></table></figure>
+
+<p>运行下面命令，可以看到这个测试会通过。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha -t 10000 async.test.js</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>另外，Mocha内置对Promise的支持，允许直接返回Promise，等到它的状态改变，再执行断言，而不用显式调用done方法。请看promise.test.js。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">it(<span class="string">&#x27;异步请求应该返回一个对象&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> fetch(<span class="string">&#x27;https://api.github.com&#x27;</span>)</span><br><span class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> res.json();</span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">      expect(json).to.be.an(<span class="string">&#x27;object&#x27;</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm i node-fetch -D</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="async-await"><a href="#async-await" class="headerlink" title="async / await"></a>async / await</h3><p>如果你的js环境支持<code>async/await</code>语法，你可以像这样使用它。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">beforeEach(<span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">await</span> db.clear();</span><br><span class="line">  <span class="keyword">await</span> db.save([tobi, loki, jane]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&#x27;#find()&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  it(<span class="string">&#x27;responds with matching records&#x27;</span>, <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> users = <span class="keyword">await</span> db.find(&#123;<span class="attr">type</span>: <span class="string">&#x27;User&#x27;</span>&#125;);</span><br><span class="line">    users.should.have.length(<span class="number">3</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="用例钩子"><a href="#用例钩子" class="headerlink" title="用例钩子"></a>用例钩子</h2><p>通过默认的 BDD 样式的接口，Mocha提供了<code>before()</code>、<code>after()</code>、<code>beforeach()</code>和<code>afterEach()</code>钩子。这些应该用于设置前提条件，并在测试后进行清理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;hooks&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的所有测试用例之前执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的所有测试用例之后执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的每个测试用例之前执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  afterEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在本区块的每个测试用例之后执行</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// test cases</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>下面是简单的示例代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">&#x27;chai&#x27;</span>).expect;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&#x27;beforeEach示例&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo++</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">&#x27;foo应该为2&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(foo).to.be.equal(<span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">&#x27;foo应该为3&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(foo).to.be.equal(<span class="number">3</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>运行测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha beforeEach.test.js</span></span><br><span class="line">  beforeEach示例</span><br><span class="line">    √ foo应该为2</span><br><span class="line">    √ foo应该为3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  2 passing (7ms)</span><br></pre></td></tr></table></figure>
+
+<p>你可以在Hook中书写异步代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;异步 beforeEach 示例&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> foo = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">  beforeEach(<span class="function"><span class="keyword">function</span>(<span class="params">done</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      foo = <span class="literal">true</span>;</span><br><span class="line">      done();</span><br><span class="line">    &#125;, <span class="number">50</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">&#x27;全局变量异步修改应该成功&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(foo).to.be.equal(<span class="literal">true</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="用例管理"><a href="#用例管理" class="headerlink" title="用例管理"></a>用例管理</h2><p>大型项目有很多测试用例。有时，我们希望只运行其中的几个，这时可以用<code>only</code>方法。<code>describe</code>块和<code>it</code>块都允许调用<code>only</code>方法，表示只运行某个测试套件或测试用例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">it.only(<span class="string">&#x27;1 加 1 应该等于 2&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  expect(add(<span class="number">1</span>, <span class="number">1</span>)).to.be.equal(<span class="number">2</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">it(<span class="string">&#x27;任何数加0应该等于自身&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  expect(add(<span class="number">1</span>, <span class="number">0</span>)).to.be.equal(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，只有带有<code>only</code>方法的测试用例会运行。</p>
+<p>此外，还有<code>skip</code>方法，表示跳过指定的测试套件或测试用例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">it.skip(<span class="string">&#x27;任何数加0应该等于自身&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  expect(add(<span class="number">1</span>, <span class="number">0</span>)).to.be.equal(<span class="number">1</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的这个测试用例不会执行。</p>
+<h2 id="浏览器测试"><a href="#浏览器测试" class="headerlink" title="浏览器测试"></a>浏览器测试</h2><p>Mocha支持在浏览器测试，</p>
+<p>首先，使用mocha init命令在指定目录生成初始化文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha init browser-test</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的命令会生成浏览器测试模板。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Mocha<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;mocha.css&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mocha&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;mocha.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">      mocha.setup(<span class="string">&#x27;bdd&#x27;</span>);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;tests.spec.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">      mocha.run();</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>你需要使用<code>&lt;script&gt;</code>标签引入你使用的断言库</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;mocha&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/chai/chai.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;mocha.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>之后引入<strong>源码和测试脚本</strong>，只需要将<code>test.spec.js</code>替换为你的测试脚本即可</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add.test.js</span></span><br><span class="line"><span class="keyword">var</span> expect = chai.expect;</span><br><span class="line"></span><br><span class="line">describe(<span class="string">&#x27;加法函数的测试&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  it(<span class="string">&#x27;1 加 1 应该等于 2&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(add(<span class="number">1</span>, <span class="number">1</span>)).to.be.equal(<span class="number">2</span>);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  it(<span class="string">&#x27;任何数加0等于自身&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    expect(add(<span class="number">1</span>, <span class="number">0</span>)).to.be.equal(<span class="number">1</span>);</span><br><span class="line">    expect(add(<span class="number">0</span>, <span class="number">0</span>)).to.be.equal(<span class="number">0</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  mocha.setup(<span class="string">&#x27;bdd&#x27;</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;add.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;add.test.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">  mocha.run();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意引入位置和模块化剔除。</p>
+<p>浏览器打开该文件即可运行测试。</p>
+<p><img src="https://i.jpg.dog/img/f874240c222af6d40fcaf9a92d1f645b.png" alt="f874240c222af6d40fcaf9a92d1f645b.png"></p>
+<p>在浏览器测试提供了浏览器的测试环境，这一点对开发十分重要。</p>
+<h2 id="生成测试报告文档"><a href="#生成测试报告文档" class="headerlink" title="生成测试报告文档"></a>生成测试报告文档</h2><p>Mocha支持从测试用例生成规格文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --recursive -R markdown &gt; spec.md</span></span><br></pre></td></tr></table></figure>
+
+<p>上面命令根据<code>test</code>目录的所有测试脚本，生成一个规格文件<code>spec.md</code>。<code>-R markdown</code>参数指定规格报告是<code>markdown</code>格式。</p>
+<p>如果想生成HTML格式的报告<code>spec.html</code>，使用下面的命令。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> mocha --recursive -R doc &gt; spec.html</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考引用"><a href="#参考引用" class="headerlink" title="参考引用"></a>参考引用</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://mochajs.org/">Mocha官方文档</a><br><a target="_blank" rel="noopener" href="https://mochajs.bootcss.com/">Mocha中文文档</a><br><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html">阮一峰 测试框架 Mocha 实例教程</a></p>
+</blockquote>
+
+                    </article>
+                    
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2021-06-04");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2021-06-01T15:16:00.000Z" itemprop="datePublished">2021-06-01</time>
+
+    , 最后修改于&nbsp;<time datetime="2021-06-04T15:48:57.357Z" itemprop="dateModified">2021-06-04</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/blog/categories/Other/'>Other</a>
+
+<a class="post-categories-list-item" href='/blog/categories/Other/BackEnd/'>BackEnd</a>
+
+<a class="post-categories-list-item" href='/blog/categories/Other/BackEnd/FrontEnd/'>FrontEnd</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/blog/tags/javascript/" rel="tag">#&nbsp;javascript</a>
+
+<a class="post-tags-list-item" href="/blog/tags/mocha/" rel="tag">#&nbsp;mocha</a>
+
+<a class="post-tags-list-item" href="/blog/tags/software-test/" rel="tag">#&nbsp;software test</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/blog/2021/05/office-deployment-tool/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">使用 ODT选择性安装 office</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="vcomments"></div>
+
+<script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = '' === 'true';
+    var verify = '' === 'true';
+    new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        appId: "pTzaoyKfCTw4zkLCI6m5SUz1-gzGzoHsz",
+        appKey: "5aCoVNPllel3XXlnHpbJ3gtl",
+        placeholder: "Just go go",
+        meta: guest_info,
+        pageSize:'10',
+        avatar:'retro',
+        lang:'zh-cn',
+        guest_info: guest_info,
+        visitor: false
+    });
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://qijieh.gitee.io/blog">QiJieH の Link</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2019;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/blog/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+<!-- Comment -->
+
+    
+        
+    
+
+
+<!-- ### Custom Footer ### -->
+
+    </body>
+
+</html>
