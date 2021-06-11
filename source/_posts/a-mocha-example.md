@@ -391,6 +391,23 @@ describe('#find()', function() {
 });
 ```
 
+## 箭头函数
+
+你可以将`describe`或`it`块改写为箭头函数`lambdas`形式，但是这样做时`this`指向将不再绑定到mocha内容。
+
+举个例子，下面的代码会失败：
+
+```js
+describe('my suite', () => {
+  it('my test', () => {
+    // should set the timeout of this test to 1000 ms; instead will fail
+    this.timeout(1000);
+    assert.ok(true);
+  });
+});
+```
+
+如果你的代码块不需要mocha内容，你可以使用箭头函数工作。不论如何，这都取决与你的具体环境。
 
 ## 用例钩子
 
