@@ -8,6 +8,7 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
+    "pushgit": "git add . && git commit -m '+1' && git push",
     "dpage": "hexo clean && hexo generate && hexo deploy"
   },
   "hexo": {
