@@ -67,14 +67,14 @@ server {
 
 ## 流程手记
 
-### Trojan安装
+### Trojan安装与指令
 
 trojan官方提供的一键部署脚本。
 ```
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 ```
 
-### Trojan相关命令
+**Trojan相关命令**
 
 查看trojan版本
 ```
@@ -92,7 +92,7 @@ systemctl stop trojan
 systemctl start trojan
 systemctl restart trojan
 ```
-### Nginx安装
+### Nginx安装与指令
 
 CentOS 8 預設 AppStream 軟體倉庫 (repo，repository) 提供的 NGINX 版本為 1.14.1，本章透過 NGINX 官方軟體倉庫，即可使用 yum/dnf 指令來安裝 NGINX 穩定或最新版本，参考[nginx官方文档](http://nginx.org/en/linux_packages.html#RHEL-CentOS)。
 
@@ -166,7 +166,7 @@ nginx -v
 nginx version: nginx/1.21.0
 ```
 
-### Nginx命令参数
+**Nginx命令参数**
 
 优雅退出nginx服务
 ```
@@ -191,4 +191,44 @@ nginx -t
 载入配置文件
 ```
 nginx -c /etc/nginx/nginx.conf
+```
+
+### BBR加速代理
+
+BBR 是 Google 提出的一种新型拥塞控制算法，可以使 Linux 服务器显著地提高吞吐量和减少 TCP 连接的延迟。
+
+开启 BBR 要求 4.10 以上版本 Linux 内核，可使用如下命令查看当前内核版本
+```
+uname -r
+```
+
+**开启BBR**
+
+使用官方
+```
+echo 'net.core.default_qdisc=fq' >> /etc/sysctl.conf  
+echo 'net.ipv4.tcp_congestion_control=bbr' >> /etc/sysctl.conf  
+sysctl -p
+```
+
+使用自动脚本
+```
+curl -O https://raw.githubusercontent.com/teddysun/across/master/bbr.sh && sh bbr.sh
+```
+
+**验证BBR**
+
+查看可以用的拥塞控制算法
+```
+sysctl net.ipv4.tcp_available_congestion_control
+```
+
+查看现在使用的拥塞控制算法
+```
+sysctl net.ipv4.tcp_congestion_control
+```
+
+检查BBR是否正常运行
+```
+lsmod | grep tcp_bbr
 ```
